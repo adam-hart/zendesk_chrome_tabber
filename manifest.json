@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "Zendesk Tabber",
+  "description": "This app redirects new zendesk tabs to an existing tab if it exists",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "assets/lotus.png"
+  },
+  "permissions": [
+    "webNavigation",
+    "tabs",
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*.zendesk.com/agent*"],
+      "js": ["context.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
